@@ -43,6 +43,13 @@
 body>.film {
   position: fixed;
 }
+.film.hide {
+  display: flex;
+  display: table 0;
+  width: 0;
+  left: 50%;
+  background: transparent;
+}
 .dialog {
   min-width: 240px;
   padding: 0;
