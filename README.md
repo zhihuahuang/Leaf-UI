@@ -1,6 +1,6 @@
 #Legible UI
 
-Legible UI 是一个轻量级、语义化的前端 UI 框架
+Legible UI 是一个轻量级、语义化的前端 UI 框架。
 
 ##浏览器支持
 - Chorme 21+
@@ -24,4 +24,4 @@ Legible UI 是一个轻量级、语义化的前端 UI 框架
 
 - legible.widget.js
 
-    组件对应的 JS 库
+    组件对应的 JS 库，需要 **jQuery** 或者 **Zepto** 的支持。
