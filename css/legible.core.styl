@@ -1,0 +1,230 @@
+// Var
+
+$padding = .643em .858em
+
+$whitegray = #CCC
+
+$border = 1px solid $whitegray
+$border-radius = 4px
+
+$box-shadow = 0 0 4px 0 rgba(0,0,0,0.61)
+
+// Base Style
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+input,textarea,code,pre{
+    font-family: inherit;
+}
+
+// Firebox下 会加内边距
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+// Common Style
+
+.button,
+.inputbox,
+.list>*,
+.code{
+    padding: $padding
+}
+
+.button,
+.inputbox,
+.list,
+.code{
+    border: $border;
+    border-radius: $border-radius;
+}
+
+.button,
+.inputbox {
+    outline: 0;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+// Link
+
+.link{
+    color: #333;
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.link:visited, // visted 只显示color
+.link:active{
+    color: #AAA; 
+}
+
+// Button
+
+.button{
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    @extend .link;
+}
+
+.button:active {
+    background: #F9F9F9;
+}
+
+// List Style
+
+.list{
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    background: white;
+}
+
+.list>*{
+    display: block;
+    border-top: 1px solid #CCC;
+    @extend .link;
+}
+
+.list>*:first-child{
+    border: 0;
+}
+
+// Table Style
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table tr,
+.table th,
+.table td{
+    border: $whitegray solid;
+}
+
+.table tr{
+    border-width: 1px 0;
+}
+
+.table tr:hover{
+    background: #F9F9F9;
+}
+
+.table th,
+.table td{
+    padding: $padding;
+    text-align: left;
+    border-width: 0 1px;
+}
+
+.table.divider th,
+.table.divider td,
+.table.divider tr:first-child,
+.table.divider tr:last-child{
+    @extend .list>*:first-child
+}
+
+// Code Style
+
+.code{
+    display: block;
+    font-size: 12px;
+    line-height: 1.618em; 
+    background: #F7F7F7;
+    overflow: hidden; // 为了选择的样式
+}
+
+.code>pre{
+    display: inline;
+}
+
+//Text Style
+.lowercase{
+    text-transform: lowercase;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+// Layout
+
+.right{
+    display: table;
+    margin-left: auto;
+}
+
+.center{
+    @extend .right
+    margin-right: auto;
+}
+
+.layout{
+    position relative;
+    display: block;
+    overflow: hidden;
+}
+
+.layout>.center{
+    float: center;
+}
+
+.layout>.right{
+    float: right;
+}
+
+.layout.horizontal{
+    display: -webkit-flex; // Safari
+    display: flex;
+    width: 100%;
+}
+
+.layout.vertical{
+    flex-flow: column;
+}
+
+.layout.horizontal>.fill,
+.layout.vertical>.fill{
+    flex: 1;
+}
+
+// Box
+
+.box{
+    display: block;
+    margin: 0.5em;
+    padding: $padding;
+    border-radius: $border-radius;
+    background: white;
+    box-shadow: $box-shadow;
+}
+
+.box.layout{
+    padding: 0;
+}
+
+// Status
+
+.hide{
+    display: none;
+}
+
+.invisible{
+    opacity: 0;
+}
