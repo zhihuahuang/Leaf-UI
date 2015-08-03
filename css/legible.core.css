@@ -154,11 +154,6 @@ input::-moz-focus-inner {
 .box.layout {
   padding: 0;
 }
-*:before,
-*:after {
-  content: "";
-  display: inline-block;
-}
 .hide {
   display: none;
 }

@@ -50,8 +50,24 @@ body>.film {
   left: 50%;
   background: transparent;
 }
+.close {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+}
+.close:before {
+  content: "×";
+  display: inline-block;
+  width: 20px;
+  line-height: 1em;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
 .dialog {
   min-width: 240px;
+  min-height: 135px;
   padding: 0;
   border-radius: 4px;
   color: #333;
@@ -65,21 +81,9 @@ body>.film {
 .dialog>.footer {
   padding: 12px 16px;
 }
-.close {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  padding: 0;
-  float: right;
-}
-.close:before {
-  content: "×";
-  display: inline-block;
-  width: 20px;
-  line-height: 1em;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
+.dialog>.close {
+  position: absolute;
+  right: 0;
 }
 body {
   font-family: Arial, sans-serif;
@@ -236,11 +240,6 @@ input::-moz-focus-inner {
 }
 .box.layout {
   padding: 0;
-}
-*:before,
-*:after {
-  content: "";
-  display: inline-block;
 }
 .hide {
   display: none;
