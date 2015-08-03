@@ -179,6 +179,7 @@ input::-moz-focus-inner {
     position relative;
     display: block;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .layout>.center{
@@ -217,6 +218,13 @@ input::-moz-focus-inner {
 
 .box.layout{
     padding: 0;
+}
+
+// After & Before
+*:before,
+*:after{
+    content: "";
+    display: inline-block;
 }
 
 // Status
