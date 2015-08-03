@@ -123,6 +123,7 @@ input::-moz-focus-inner {
   position: relative;
   display: block;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .layout>.center {
   float: center;
@@ -152,6 +153,11 @@ input::-moz-focus-inner {
 }
 .box.layout {
   padding: 0;
+}
+*:before,
+*:after {
+  content: "";
+  display: inline-block;
 }
 .hide {
   display: none;
