@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link rel="stylesheet" href="../css/legible.widget.min.css">
+    <style>
+        div>div{
+            padding: 20px;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        div>div:nth-child(1){
+            background-color: orangered;
+        }
+        
+        div>div:nth-child(2){
+            background-color: yellowgreen;
+        }
+        
+        div>div:nth-child(3){
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>布局</h1>
+    <hr>
+    <h2>无布局</h2>
+    <div>
+        <div class="left">Left</div>
+        <div class="center">Center</div>
+        <div class="right">Right</div>        
+    </div>
+    <h3>关键代码</h3>
+    <code class="code">
+<pre>
+&lt;div&gt;
+    &lt;div class="left"&gt;Left&lt;/div&gt;
+    &lt;div class="center"&gt;Center&lt;/div&gt;
+    &lt;div class="right"&gt;Right&lt;/div&gt;        
+&lt;/div&gt;
+</pre>
+    </code>
+    
+    <h2>普通布局</h2>
+    <p>普通布局无法实现居中</p>
+    <div class="layout">
+        <div class="left">Left</div>
+        <div class="right">Right</div>
+    </div>
+    <h3>关键代码</h3>
+     <code class="code">
+<pre>
+&lt;div class="layout"&gt;
+    &lt;div class="left"&gt;Left&lt;/div&gt;
+    &lt;div class="right"&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </code>   
+    
+    <h2>水平布局</h2>
+    <div class="layout horizontal" style="height:200px;">
+        <div style="width: 150px;">Left 150px</div>
+        <div class="fill">Center Fill</div>
+        <div style="width: 200px;">Right 200px</div>
+    </div>
+    <h3>关键代码</h3>
+    <code class="code">
+<pre>
+&lt;div class="layout horizontal" style="height:200px;"&gt;
+    &lt;div style="width: 150px;"&gt;Left 150px&lt;/div&gt;
+    &lt;div class="fill"&gt;Center Fill&lt;/div&gt;
+    &lt;div style="width: 200px;"&gt;Right 200px&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </code>
+    
+    <h2>垂直布局</h2>
+    <div class="layout vertical" style="height:600px;">
+        <div style="height: 150px;">Top</div>
+        <div class="fill">Center Fill</div>
+        <div style="height: 200px;">Bottom</div>
+    </div>
+    <h3>关键代码</h3>
+    <code class="code">
+<pre>
+&lt;div class="layout vertical" style="height:600px;"&gt;
+    &lt;div style="height: 150px;"&gt;Top&lt;/div&gt;
+    &lt;div class="fill"&gt;Center Fill&lt;/div&gt;
+    &lt;div style="height: 200px;"&gt;Bottom&lt;/div&gt;
+&lt;/div&gt;
+ </pre>
+    </code>
+</body>
+</html>
