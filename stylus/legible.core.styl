@@ -67,6 +67,16 @@ input,textarea,pre{
     font-family: inherit;
 }
 
+// Style
+
+.full {
+    width: 100%;
+}
+
+.circle {
+    border-radius: 1000px;
+}
+
 // Common Style
 
 .button,
@@ -86,6 +96,7 @@ input,textarea,pre{
 
 .button,
 .inputbox {
+    box-sizing: border-box;
     outline: 0;
     font-size: 14px;
     vertical-align: top;
@@ -111,8 +122,7 @@ input,textarea,pre{
 
 .button{
     display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
+    //text-align: center;
     cursor: pointer;
     background: white;
     @extend .link;
@@ -120,6 +130,16 @@ input,textarea,pre{
 
 .button:active {
     background: #F9F9F9;
+}
+
+.button>*{
+    float: left; //不加float，会有空白
+}
+
+// 透明按钮,无样式
+.button.transparent{
+    border: 0;
+    background: transparent;
 }
 
 // List Style
@@ -215,7 +235,16 @@ hr.divider{
     text-transform: capitalize;
 }
 
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
 // Layout
+
 .left{
     display: table;
     margin-left: 0;
@@ -242,12 +271,12 @@ hr.divider{
     float: left;
 }
 
-.layout>.center{
-    float: center;
-}
-
 .layout>.right{
     float: right;
+}
+
+.layout>.center{
+    display: block;
 }
 
 .layout.horizontal{
