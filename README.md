@@ -3,11 +3,25 @@
 Legible UI 是一个轻量级、语义化的前端 UI 框架。
 
 ##<span id="browers">浏览器支持</span>
+
+###PC端
+
 - Chorme 21+
-- Opera 12.1+
 - Firefox 22+
 - Safari 6.1+
+- Opera 12.1+
 - IE 10+
+
+###移动端
+
+- IOS Safari 7.1+
+- Android 2.2+
+- Chrome(Android)
+- UC Browser(Android) 9.9+
+- Firefox(Android) 39
+- Opera Mini 8
+- Opera Mobile 12.1
+- IE Mobile 10+
 
 ##文件结构
 ###css/

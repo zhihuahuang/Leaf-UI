@@ -181,7 +181,7 @@ th {
 }
 /* Legible UI v0.1 */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, "Microsoft Yahei", sans-serif;
 }
 code {
   font-family: Verdana, sans-serif;
@@ -191,29 +191,34 @@ textarea,
 pre {
   font-family: inherit;
 }
+.full {
+  width: 100%;
+}
+.circle {
+  border-radius: 1000px;
+}
 .button,
 .inputbox,
-.list>*,
+.listview>*,
 .code {
   padding: 0.643em 0.858em;
 }
 .button,
 .inputbox,
-.list,
+.listview,
 .code {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 .button,
 .inputbox {
+  box-sizing: border-box;
   outline: 0;
   font-size: 14px;
   vertical-align: top;
 }
-.link,
-.button,
-.list>* {
-  color: #333;
+.link {
+  color: #0071bc;
   text-decoration: none;
 }
 .link:hover {
@@ -221,33 +226,73 @@ pre {
 }
 .link:visited,
 .link:active {
-  color: #aaa;
+  color: #4c2c92;
 }
 .button {
   display: inline-block;
-  box-sizing: border-box;
-  text-align: center;
+  padding: 0.65em 1.3em;
   cursor: pointer;
   background: #fff;
+  color: #333;
+  text-decoration: none;
 }
 .button:active {
-  background: #f9f9f9;
+  box-shadow: 0 0 1000px rgba(0,0,0,0.2) inset;
+}
+.button>* {
+  float: left;
+}
+.button.transparent {
+  border: 0;
+  background: transparent;
+}
+.button.blue {
+  color: #fff;
+  background-color: #0071bc;
+  border-color: #0071bc;
+}
+.button.red {
+  color: #fff;
+  background-color: #cd2026;
+  border-color: #cd2026;
 }
 .list {
+  display: table;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+.list li {
+  display: table-row;
+  line-height: 1.2;
+  padding: 0.15em 0;
+}
+ol.list li {
+  counter-increment: ol-li;
+}
+.list li:before {
+  display: table-cell;
+  padding-right: 0.5em;
+}
+ul.list li:before {
+  content: "•";
+}
+ol.list li:before {
+  content: counter(ol-li) ".";
+}
+.listview {
   display: inline-block;
   padding: 0;
   list-style: none;
   background: #fff;
 }
-.list>* {
+.listview>* {
   display: block;
   border-top: 1px solid #ccc;
+  color: #333;
+  text-decoration: none;
 }
-.list>*:first-child,
-.table.divider th,
-.table.divider td,
-.table.divider tr:first-child,
-.table.divider tr:last-child {
+.listview>*:first-child {
   border: 0;
 }
 .table {
@@ -271,8 +316,15 @@ pre {
   text-align: left;
   border-width: 0 1px;
 }
+.table.divider th,
+.table.divider td,
+.table.divider tr:first-child,
+.table.divider tr:last-child {
+  border: 0;
+}
 .code {
   display: block;
+  padding: 1em 2em;
   font-size: 12px;
   line-height: 1.618em;
   background: #f7f7f7;
@@ -280,6 +332,13 @@ pre {
 }
 .code>pre {
   display: inline;
+}
+.divider {
+  border-width: 0 0 1px;
+  border-color: #e0e0e0;
+}
+hr.divider {
+  margin: 0;
 }
 .lowercase {
   text-transform: lowercase;
@@ -289,6 +348,12 @@ pre {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .left {
   display: table;
@@ -311,11 +376,11 @@ pre {
 .layout>.left {
   float: left;
 }
-.layout>.center {
-  float: center;
-}
 .layout>.right {
   float: right;
+}
+.layout>.center {
+  display: block;
 }
 .layout.horizontal,
 .layout.vertical {
