@@ -67,39 +67,32 @@ input,textarea,pre{
     font-family: inherit;
 }
 
-// Style
-
-.full {
-    width: 100%;
-}
-
-.circle {
-    border-radius: 1000px;
-}
-
 // Common Style
 
 .button,
-.inputbox,
+.textbox,
 .listview>*,
 .code{
     padding: $padding
 }
 
 .button,
-.inputbox,
-.listview,
+.textbox,
 .code{
     border: $border;
     border-radius: $border-radius;
 }
 
 .button,
-.inputbox {
+.textbox {
     box-sizing: border-box;
     outline: 0;
     font-size: 14px;
     vertical-align: top;
+}
+
+.textbox {
+    line-height: 1.14em;
 }
 
 // Link
@@ -189,14 +182,15 @@ ol.list li:before {
 
 // List Style
 
-.listview{
+.listview {
     display: inline-block;
     padding: 0;
     list-style: none;
-    background: white;
+    background: transparent;
+    box-sizing: border-box;
 }
 
-.listview>*{
+.listview>* {
     display: block;
     border-top: 1px solid #CCC;
     color: #333;
@@ -354,6 +348,16 @@ hr.divider{
 
 .box.layout{
     padding: 0;
+}
+
+// Style
+
+.full {
+    width: 100%;
+}
+
+.rounded {
+    border-radius: 1000px;
 }
 
 // Status
