@@ -41,8 +41,6 @@ Legible UI 是一个轻量级、语义化的前端 UI 框架。
     组件对应的 JS 库，需要 **jQuery** 或者 **Zepto** 的支持。
 
 ##依赖于
-[Stylus](https://github.com/stylus/stylus "stylus")   
-用于快捷开发CSS
-
-[Normalize.css](http://necolas.github.io/normalize.css/ "normalize.css")   
-用于保证CSS在浏览器上的表现
+- [Stylus](https://github.com/stylus/stylus "stylus")   
+- [Normalize.css](http://necolas.github.io/normalize.css/ "normalize.css") 
+- [clean-css](https://github.com/jakubpawlowicz/clean-css)  
