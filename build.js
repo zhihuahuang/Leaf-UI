@@ -7,7 +7,7 @@ var fs       = require('fs'),
 var banner = "/*! Legible UI v0.1 */\n";
 
 // Load normalize.css
-var normalizeCSS = fs.readFileSync(__dirname + '/lib/normalize.css/normalize.css', 'utf8');
+var normalizeCSS = fs.readFileSync(__dirname + '/node_modules/normalize.css/normalize.css', 'utf8');
 
 function doStylus(stylusFile) {
     var fileName = path.basename(stylusFile).match(/(.*)\.styl$/)[1];
