@@ -6,33 +6,80 @@ var fs       = require('fs'),
 
 var banner = "/*! Legible UI v0.1 */\n";
 
-// Load normalize.css
-var normalizeCSS = fs.readFileSync(__dirname + '/node_modules/normalize.css/normalize.css', 'utf8');
-
-function doStylus(stylusFile) {
-    var fileName = path.basename(stylusFile).match(/(.*)\.styl$/)[1];
-	//console.log(fs.readFileSync(__dirname + '/stylus/'+ stylusFile, 'utf8'));
-    stylus(fs.readFileSync(__dirname + '/stylus/'+ stylusFile, 'utf8'))
-        .render(function(err, css) {
-            var combineCSS = normalizeCSS + banner + css;
-        
-            var outCSS = new CleanCSS({
-                keepBreaks: true
-            }).minify(combineCSS).styles;
-
-            fs.writeFile(__dirname + '/css/' + fileName + '.css', outCSS, 'utf8', function(err){
-                console.log(fileName + '.css Done!');
-            });
-        
-            var minCSS = new CleanCSS({
-                keepBreaks: false
-            }).minify(combineCSS).styles;
-        
-            fs.writeFile(__dirname + '/css/' + fileName + '.min.css', minCSS, 'utf8', function(err){
-                console.log(fileName + '.min.css Done!');
-            });
-        });
+var config = {
+	"legible.core": {
+		in: [
+			'./stylus/base.styl',
+			'./stylus/text.styl',
+			'./stylus/layout.styl',
+		],
+		out: "css/",
+		minimize: true,
+	}
 }
 
+function stylusify(styl, calllback) {
+	stylus(styl)
+		.render(function(err, css) {
+			if(err) {
+				console.log(err);
+				process.exit(-1);
+			}
+			calllback(css);
+		});
+}
 
-doStylus('legible.core.styl');
+function minify(css) {
+	return new CleanCSS({
+		keepBreaks: false,
+		semanticMerging: true,
+	}).minify(css).styles;
+}
+
+function inputFile(path) {
+	return fs.readFileSync(path, 'utf-8');
+}
+
+function outputCSS(path, css) {
+	fs.writeFile(path, banner + css, 'utf8', function(err){
+		console.log(path + ' Done!');
+	});
+}
+
+var normalizeCSS = fs.readFileSync(__dirname + '/node_modules/normalize.css/normalize.css', 'utf8');
+var normalizeMinCSS = minify(normalizeCSS);
+
+for(i in config) {
+	var name = i;
+	var files = config[i].in;
+	var dir = __dirname + '/' + (config[i].out || 'css/');
+	var minimize = config[i].minimize || true;
+	
+	(function(){
+		var cssList = [],
+			minCSSList = [];
+	
+		var finish = 0;
+
+		function buildCSS() {
+			if(finish != files.length) {
+				return;
+			}
+
+			outputCSS(dir + i + '.css', normalizeCSS + cssList.join(""));
+			outputCSS(dir + i + '.min.css', normalizeMinCSS + minCSSList.join(""));
+		}
+
+		for(j in files) {
+			var stylus = inputFile(files[j]);
+			(function(key) {
+				stylusify(stylus, function(css) {
+					cssList[key] = css;
+					minCSSList[key] = minify(css);
+					finish++;
+					buildCSS();
+				});
+			}(j));
+		}		
+	}());	
+}
