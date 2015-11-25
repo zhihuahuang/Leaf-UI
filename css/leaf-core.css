@@ -1,4 +1,4 @@
-/*! Legible UI v0.1 */
+/*! Leaf UI v0.2 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -461,6 +461,7 @@ pre {
   outline: 0;
   font-size: 0.875em;
   vertical-align: top;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.05);
 }
 /**
 * Button
@@ -479,10 +480,13 @@ pre {
   text-align: center;
   text-decoration: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
 }
-.button:active {
-  box-shadow: 0 0 1000px rgba(0,0,0,0.2) inset;
+.button:active,
+.listview > *:active {
+  cursor: pointer;
+  box-shadow: inset 0 0 1000px rgba(0,0,0,0.2);
 }
 .button>* {
   vertical-align: middle;
@@ -534,6 +538,8 @@ ul.list li:before {
 .listview {
   display: inline-block;
   padding: 0;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
   background-color: transparent;
   box-sizing: border-box;
 }
@@ -585,6 +591,7 @@ ul.list li:before {
 }
 .code > pre {
   display: inline;
+  word-wrap: break-word;
 }
 .divider {
   border-width: 0 0 1px;
@@ -593,19 +600,14 @@ ul.list li:before {
 hr.divider {
   margin: 0;
 }
-.cardview {
-  display: block;
-  margin: 0.5em;
-  padding: 1em 1.25em;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2);
-}
-.cardview.layout {
-  padding: 0;
+.circle {
+  border-radius: 1000px;
 }
 .rounded {
-  border-radius: 1000px;
+  border-radius: 6px;
+}
+.shadow {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.22);
 }
 .hide {
   display: none !important;
@@ -616,10 +618,10 @@ hr.divider {
 /**
 * Text Style
 */
-.lowercase {
+.lower {
   text-transform: lowercase;
 }
-.uppercase {
+.upper {
   text-transform: uppercase;
 }
 .capitalize {
@@ -630,6 +632,11 @@ hr.divider {
 }
 .text-right {
   text-align: right;
+}
+.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mark {
   padding: 0.125em 0.25em;
@@ -659,10 +666,12 @@ hr.divider {
   overflow: hidden;
   box-sizing: border-box;
 }
-.layout > .left {
+.layout >.left {
+  display: block;
   float: left;
 }
-.layout > .right {
+.layout >.right {
+  display: block;
   float: right;
 }
 .layout > .center {
@@ -673,12 +682,12 @@ hr.divider {
   display: -webkit-flex;
   display: flex;
 }
+.layout.horizontal >.fill,
+.layout.vertical >.fill {
+  flex: 1;
+}
 .layout.vertical {
   flex-flow: column;
-}
-.layout.horizontal > .fill,
-.layout.vertical > .fill {
-  flex: 1;
 }
 /**
 * Row & Columns

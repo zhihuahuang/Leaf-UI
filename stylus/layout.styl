@@ -3,67 +3,68 @@
 */
 
 .left
-    display table
+    display: table
     margin-left 0
 
 .right
-    display table
+    display: table
     margin-left auto
 
 .center
     @extend .right
-    margin-right auto
+    margin-right: auto
 
 .layout
-    position relative
-    display block
-    overflow hidden
-    box-sizing border-box
-
-.layout
-	> .left
-    	float left
-	> .right
-    	float right
+    position: relative
+    display: block
+    overflow: hidden
+    box-sizing: border-box
+    
+    >.left
+        display: block
+        float: left
+    >.right
+        display: block 
+        float: right 
     > .center
-    	display block
-	&.horizontal
-    	display -webkit-flex // Safari
-    	display flex
-	&.vertical 
-		@extend .layout.horizontal
-		flex-flow column
-	&.horizontal
-	&.vertical
-		> .fill
-			flex 1	
+        display: block
+
+.layout.horizontal
+    display: -webkit-flex; // Safari
+    display: flex;
+    >.fill
+        flex: 1
+.layout.vertical
+    @extend .layout.horizontal
+    flex-flow: column
+ 
 /**
 * Row & Columns
 */
 
 .row {
-    width: 100%;
-	clear: both;	
+    width: 100%
+    clear: both 
 }
 
 .col-1 {
-	float: left;
-	box-sizing: border-box;
+    float: left
+    box-sizing: border-box
 }
-	
+    
 for i in (2...12)
-	.col-{i} {
-		@extend .col-1
-	}
-	
+    .col-{i} {
+        @extend .col-1
+    }
+    
 for i in (1...12)
-	.col-{i} {
-		width: (floor(i/12*10000)/100)%;
-	}
+    .col-{i} {
+        width: (floor(i/12*10000)/100)%;
+    }
 
 for i in (1...12)
- 	[cols="10"] {
-		> .col-{i} {
-	  		width: i<=10 ? (i*10)% : 100%;
-		}
-	}
+    [cols="10"] {
+        > .col-{i} {
+            width: i<=10 ? (i*10)% : 100%;
+        }
+    }

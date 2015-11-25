@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Widget</title>
-    <link rel="stylesheet" href="../css/legible.core.min.css">
+    <link rel="stylesheet" href="../css/leaf-core.min.css">
     <link rel="stylesheet" href="css/demo.css">
     <style>
     </style>
 </head>
 <body>
-    <h1>按钮（Button）</h1>
+    <h1>Button 按钮</h1>
     <p>我们可以通过添加 <mark class="mark">.button</mark> 来为元素设置按钮样式。</p>
     <button class="button">Button</button>
     <input class="button" type="button" value="Button">
@@ -21,19 +21,29 @@
 &lt;input class="button" type="button" value="Button"&gt;
 &lt;a class="button" href="#"&gt;Button&lt;/a&gt;</pre>
     </code>
+    
    	<p>但是，我们只建议在一下几种元素上使用按钮样式</p>
     <ul class="list">
     	<li>&lt;button&gt;</li>
     	<li>&lt;input type="button | submit | reset"&gt;</li>
     	<li>&lt;a href="# | http://..."&gt;</li>
     </ul>
-    <p>上使用按钮样式。</p>
     
-    <h2>按钮的样式</h2>
+    <h2>按钮的颜色</h2>
     <p>按钮可以有几种样式，我们为你设置了一些基本样式。你可以你的需求自己修改。</p>
     <button class="button">Button</button>
     <button class="button blue">Button</button>
     <button class="button red">Button</button>
+    
+    <h2>Circle Button 圆形按钮</h2>
+    <p>我们可以通过添加 <mark class="mark">.button.circle</mark> 来为元素设置按钮样式。</p>
+    <button class="button circle">Button</button>
+    <h4>Example 示例</h4>
+    <code class="code">
+<pre>
+&lt;button class="button circle"&gt;Button&lt;/button&gt;
+</pre>
+    </code>
     
     <h1>输入框（Textbox）</h1>
     <p>我们可以通过添加 <mark class="mark">.textbox</mark> 来为表单输入框设置样式。</p>
@@ -54,7 +64,23 @@
         <li>List item</li>
     </ul>
     
-    <h1>卡片（Cardview）</h1>
-    <p class="cardview">A Simple CardView</p>
+    <h1>Table 表格</h1>
+    <table class="table">
+        <tr>
+            <th>Table Head 1</th>
+            <th>Table Head 2</th>
+            <th>Table Head 3</th>            
+        </tr>
+        <tr>
+            <td>Table Cell A-1</td>
+            <td>Table Cell A-2</td>
+            <td>Table Cell A-2</td>
+        </tr>
+        <tr>
+            <td>Table Cell B-1</td>
+            <td>Table Cell B-2</td>
+            <td>Table Cell B-2</td>
+        </tr>
+    </table>
 </body>
 </html>

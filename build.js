@@ -4,10 +4,10 @@ var fs       = require('fs'),
     stylus   = require('stylus'),
     CleanCSS = require('clean-css');
 
-var banner = "/*! Legible UI v0.1 */\n";
+var banner = "/*! Leaf UI v0.2 */\n";
 
 var config = {
-	"legible.core": {
+	"leaf-core": {
 		in: [
 			'./stylus/base.styl',
 			'./stylus/text.styl',

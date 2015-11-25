@@ -12,11 +12,11 @@ $border-radius = 4px
 body {
     font-family: Arial, "Microsoft Yahei", sans-serif;
 }
-	
+    
 code {
     font-family: Consolas, Verdana, sans-serif;
 }
-	
+    
 input,
 textarea,
 pre {
@@ -47,14 +47,15 @@ pre {
 */
 
 .textbox {
-	padding: $padding;
+    padding: $padding;
     border: $border;
     border-radius: $border-radius;
     line-height: 1.14em;
-	box-sizing: border-box;
+    box-sizing: border-box;
     outline: 0;
     font-size: 0.875em; // 14px/16px = 
     vertical-align: top;
+    box-shadow: inset 1px 1px 1px rgba(0,0,0,.05);
 }
 
 /**
@@ -64,10 +65,10 @@ pre {
 .button {
     display: inline-block;
     padding: .65em 1.3em;
-	border: $border;
+    border: $border;
     border-radius: $border-radius;
     outline: 0;
-	box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 0.875em; // 14px/16px
     vertical-align: top;
     background-color: #FFF;
@@ -75,11 +76,13 @@ pre {
     text-align: center;
     text-decoration: none;
     -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
 }
-	
+    
 .button:active {
-    box-shadow: 0 0 1000px rgba(0,0,0,.2) inset;
+    cursor: pointer;
+    box-shadow: inset 0 0 1000px rgba(0,0,0,.2);
 }
 
 .button>*{
@@ -114,27 +117,27 @@ pre {
     padding: 0;
     border: 0;
     list-style: none;
-	
-	li {
-		display: table-row;
-		line-height: 1.2;
-		padding: 0.15em 0;
-		
-		&:before {
-			display: table-cell;
-			padding-right: .5em;
-		}
-	}
+    
+    li {
+        display: table-row;
+        line-height: 1.2;
+        padding: 0.15em 0;
+        
+        &:before {
+            display: table-cell;
+            padding-right: .5em;
+        }
+    }
 }
 
 ol.list{
-	li{
-    	counter-increment: ol-li;
-		
-		&:before {
-			content: counter(ol-li)".";
-		}
-	}
+    li{
+        counter-increment: ol-li;
+        
+        &:before {
+            content: counter(ol-li)".";
+        }
+    }
 }
 
 ul.list li:before {
@@ -148,20 +151,26 @@ ul.list li:before {
 .listview {
     display: inline-block;
     padding: 0;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
     background-color: transparent;
     box-sizing: border-box;
-	
-	> * {
-		display: block;
-		padding: $padding;
-		border-top: 1px solid #E0E0E0;
-		color: #333;
-		text-decoration: none;
-		
-		&:first-child{
-			border: 0;
-		}
-	}
+    
+    > * {
+        display: block;
+        padding: $padding;
+        border-top: 1px solid #E0E0E0;
+        color: #333;
+        text-decoration: none;
+        
+        &:first-child{
+            border: 0;
+        }
+    }
+    
+    > *:active {
+        @extend .button:active;
+    }
 }
 
 // Table
@@ -200,58 +209,42 @@ ul.list li:before {
 
 // Code Style
 
-.code{
-    display: block;
-    padding: 1em 2em;
-	border: $border;
-    border-radius: $border-radius;
-    font-size: 12px;
-    line-height: 1.618em; 
-    background-color: #F9F9FA;
-    overflow: hidden; // 为了选择的样式
-	
-	> pre {
-		display: inline;
-	}
-}
-
-/**
-* CardView
-*/
-.cardview {
-    display: block;
-    margin: 0.5em;
-    padding: 1em 1.25em;
-    border-radius: $border-radius;
-    background-color: #FFF;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2);
-}
-
-.cardview.layout{
-    padding: 0;
-}
+.code
+    display: block
+    padding: 1em 2em
+    border: $border
+    border-radius: $border-radius
+    font-size: 12px
+    line-height: 1.618em;
+    background-color: #F9F9FA
+    overflow: hidden // 为了选择的样式
+    
+    > pre
+        display: inline
+        word-wrap: break-word
 
 // Divider 分割线
 
-.divider{
-  border-width: 0 0 1px;
-  border-color: #E0E0E0;
-}
+.divider
+  border-width: 0 0 1px
+  border-color: #E0E0E0
 
-hr.divider{
-    margin: 0;
-}
-	
+hr.divider
+    margin: 0
+    
 // Style
 
-.rounded {
-    border-radius: 1000px;
-}
+.circle
+    border-radius: 1000px
 
-.hide{
-    display: none !important;
-}
+.rounded
+    border-radius: 6px
 
-.invisible{
-    opacity: 0;
-}
+.shadow
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.22)
+
+.hide
+    display: none !important
+
+.invisible
+    opacity: 0

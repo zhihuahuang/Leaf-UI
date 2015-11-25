@@ -3,61 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Layout</title>
-    <link rel="stylesheet" href="../css/legible.core.min.css">
+    <link rel="stylesheet" href="../css/leaf-core.min.css">
     <link rel="stylesheet" href="css/demo.css">
     <style>
-/*
-        div>div{
-            padding: 20px;
-            color: white;
-            text-align: center;
-            vertical-align: middle;
-        }
-*/
-        
-/*
-        div>div:nth-child(1){
-            background-color: orangered;
-        }
-        
-        div>div:nth-child(2){
-            background-color: yellowgreen;
-        }
-        
-        div>div:nth-child(3){
-            background-color: dodgerblue;
-        }
-*/
-        
-        div.col-1,
-        div.col-2,
-        div.col-3,
-        div.col-4,
-        div.col-5,
-        div.col-6,
-        div.col-7,
-        div.col-8,
-        div.col-9,
-        div.col-10,
-        div.col-11,
-        div.row{
-            background: #FCFCFF;
-            border: 1px solid #EEE;
+		div.left,
+		div.center,
+		div.right,
+        .layout > div{
+			border: 1px solid #FFF;
             padding: 16px;
-        }
+			background-color: #91ca5d;
+            color: white;
+            font-style: italic;
+            font-weight: bold;
+            border-radius: 4px;
+		}
+		
+		.layout>br{
+			clear: right;
+		}
+		
+		.col-3.break + * {
+			clear: left;
+		}
         
     </style>
 </head>
 <body>
     <h1>布局</h1>
-    <hr class="divider">
     <h2>无布局</h2>
     <div>
         <div class="left">Left</div>
         <div class="center">Center</div>
         <div class="right">Right</div>        
     </div>
-    <h3>关键代码</h3>
+    <h3>代码示例：</h3>
     <code class="code">
 <pre>
 &lt;div&gt;
@@ -69,13 +49,13 @@
     </code>
     
     <h2>普通布局</h2>
-    <p>普通布局无法实现居中</p>
+	<p>普通布局只要加上 <mark class="mark">.layout</mark> 就可以实现简单的两端布局。普通布局无法实现居中</p>
     <div class="layout">
         <div class="left">Left</div>
         <div class="right">Right</div>
     </div>
-    <h3>关键代码</h3>
-     <code class="code">
+    <h3>代码示例：</h3>
+    <code class="code">
 <pre>
 &lt;div class="layout"&gt;
     &lt;div class="left"&gt;Left&lt;/div&gt;
@@ -85,12 +65,31 @@
     </code>   
     
     <h2>水平布局</h2>
-    <div class="layout horizontal" style="height:200px;">
-        <div style="width: 150px;">Left 150px</div>
-        <div class="fill">Center Fill</div>
-        <div style="width: 200px;">Right 200px</div>
+    <p>水平布局通常是用来实现一列（或多列）宽度固定，一列宽度自适应的布局形式，它有两种实现方式。</p>
+    <h3>1.传统形式</h3>
+	<p>传统形式可以兼容大部分浏览器，但它的结构不那么直观。固定宽度的列必须加上 <mark class="mark">.left</mark> 或 <mark class="mark">.right</mark> 以明确它的位置，需要自适应列必须放在布局的最后。</p>
+    <div class="layout">
+    	<div style="width:150px;" class="left layout">Left 150px</div>
+    	<div style="width:200px" class="right layout">Right 200px</div>
+    	<div class="layout">Center Fill</div>
     </div>
-    <h3>关键代码</h3>
+    <h3>代码示例：</h3>
+    <code class="code">
+	<pre>
+&lt;div class="layout horizontal" style="height:200px;"&gt;
+    &lt;div style="width: 150px;" class="left layout"&gt;Left 150px&lt;/div&gt;
+    &lt;div style="width: 200px;  class="left layout""&gt;Right 200px&lt;/div&gt;
+    &lt;div&gt;Center Fill&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </code>   
+    <h3>2.高级形式</h3>
+    <p>高级形式只能在一些比较新的浏览器上运行，但是它有更强大的扩展性。你只需要在需要自适应宽度的列上加上 <mark class="mark">.fill</mark> 就行了，你甚至可以指定多列自适应，这样它们将平分剩余的宽度。</p>
+    <div class="layout horizontal">
+        <div style="width: 150px;" class="layout">Left 150px</div>
+        <div class="fill">Center Fill</div>
+        <div style="width: 200px;" class="layout">Right 200px</div>
+    </div>
+    <h3>代码示例：</h3>
     <code class="code">
 <pre>
 &lt;div class="layout horizontal" style="height:200px;"&gt;
@@ -107,7 +106,7 @@
         <div class="fill">Center Fill</div>
         <div style="height: 20px;">Bottom</div>
     </div>
-    <h3>关键代码</h3>
+    <h3>代码示例：</h3>
     <code class="code">
 <pre>
 &lt;div class="layout vertical" style="height:600px;"&gt;
@@ -119,6 +118,10 @@
     </code>
     
     <h1>网格（Row & Columns）</h1>
+    
+    <p>添加.row可以使得元素宽度100%从而占据一行。</p>
+    <button class="button row">Row Button</button>
+	<input class="textbox row" placeholder="Row Text Box"/>
     <p>Columns 由 12 列组成，<mark class="mark">.col-*</mark> 和 <mark class="mark">.row</mark> 都必须包含在 <mark class="mark">.layout</mark> 中</p>
     <div class="layout">
     	<!-- col-1 -->
@@ -168,8 +171,6 @@
 		<!-- col-11 -->
 		<div class="col-11">col-11</div>
 		<div class="col-1">col-1</div>
-   		<!-- row -->
-   		<div class="row">row</div>
     </div>
 </body>
 </html>
