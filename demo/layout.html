@@ -69,17 +69,17 @@
     <h3>1.传统形式</h3>
 	<p>传统形式可以兼容大部分浏览器，但它的结构不那么直观。固定宽度的列必须加上 <mark class="mark">.left</mark> 或 <mark class="mark">.right</mark> 以明确它的位置，需要自适应列必须放在布局的最后。</p>
     <div class="layout">
-    	<div style="width:150px;" class="left layout">Left 150px</div>
-    	<div style="width:200px" class="right layout">Right 200px</div>
-    	<div class="layout">Center Fill</div>
+    	<div style="width:150px;" class="layout left">Left 150px</div>
+    	<div style="width:200px" class="layout right">Right 200px</div>
+    	<div class="layout center">Center Fill</div>
     </div>
     <h3>代码示例：</h3>
     <code class="code">
 	<pre>
 &lt;div class="layout horizontal" style="height:200px;"&gt;
-    &lt;div style="width: 150px;" class="left layout"&gt;Left 150px&lt;/div&gt;
-    &lt;div style="width: 200px;  class="left layout""&gt;Right 200px&lt;/div&gt;
-    &lt;div&gt;Center Fill&lt;/div&gt;
+    &lt;div style="width: 150px;" class="layout left"&gt;Left 150px&lt;/div&gt;
+    &lt;div style="width: 200px;  class="layout right""&gt;Right 200px&lt;/div&gt;
+    &lt;div class="layout center"&gt;Center Fill&lt;/div&gt;
 &lt;/div&gt;</pre>
     </code>   
     <h3>2.高级形式</h3>

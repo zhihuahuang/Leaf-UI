@@ -16,10 +16,13 @@
 
 .layout
     position: relative
-    display: block
+    display: table
+    width: 100%
     overflow: hidden
     box-sizing: border-box
     
+    >*
+        display: table-cell
     >.left
         display: block
         float: left
@@ -28,6 +31,7 @@
         float: right 
     > .center
         display: block
+        width: auto
 
 .layout.horizontal
     display: -webkit-flex; // Safari

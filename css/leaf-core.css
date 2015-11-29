@@ -542,6 +542,9 @@ ul.list li:before {
   cursor: pointer;
   background-color: transparent;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .listview > * {
   display: block;
@@ -553,6 +556,9 @@ ul.list li:before {
 .listview > *:first-child {
   border: 0;
 }
+/**
+* Table Style
+*/
 .table {
   width: 100%;
 }
@@ -579,6 +585,9 @@ ul.list li:before {
 .table.divider tr:last-child {
   border: 0;
 }
+/**
+* Code Style
+*/
 .code {
   display: block;
   padding: 1em 2em;
@@ -601,13 +610,32 @@ hr.divider {
   margin: 0;
 }
 .circle {
-  border-radius: 1000px;
+  border-radius: 9999px;
+}
+.circle-left {
+  border-radius: 9999px 0 0 9999px;
+}
+.circle-right {
+  border-radius: 0 9999px 9999px 0;
 }
 .rounded {
   border-radius: 6px;
 }
+.square {
+  border-radius: 0px;
+}
 .shadow {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.22);
+}
+.naked {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+.naked.listview>* {
+  border: 0;
 }
 .hide {
   display: none !important;
@@ -662,9 +690,13 @@ hr.divider {
 }
 .layout {
   position: relative;
-  display: block;
+  display: table;
+  width: 100%;
   overflow: hidden;
   box-sizing: border-box;
+}
+.layout >* {
+  display: table-cell;
 }
 .layout >.left {
   display: block;
@@ -676,6 +708,7 @@ hr.divider {
 }
 .layout > .center {
   display: block;
+  width: auto;
 }
 .layout.horizontal,
 .layout.vertical {
