@@ -423,11 +423,17 @@ td,
 th {
   padding: 0;
 }
-body {
-  font-family: Arial, "Microsoft Yahei", sans-serif;
+.sans-serif {
+  font-family: Arial, Tahoma, "华文细黑", "Microsoft Yahei", sans-serif;
 }
-code {
+.sans-serif code {
   font-family: Consolas, Verdana, sans-serif;
+}
+.serif {
+  font-family: Georgia, Times, "宋体", serif;
+}
+.serif code {
+  font-family: Courier, Georgia, "宋体", serif;
 }
 input,
 textarea,
