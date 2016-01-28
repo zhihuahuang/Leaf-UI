@@ -1,17 +1,25 @@
 #Leaf UI
 
+[![version](https://img.shields.io/badge/version-0.0.3-blue.svg)](https://github.com/zhihuahuang/Leaf-UI)
+
 Leaf UI is a lightweight and semantic front-end UI framework.  
 Leaf UI 是一个轻量级、语义化的前端 UI 框架。
 
-##文件结构
+##File Struct 文件结构
 ###css/
 
 - leaf-core.css
 
-    The Basic CSS UL style.  
-    基础的 CSS UI 样式。
+>
+The core css ui styles, does not depend on js.  
+基础的 CSS UI 样式，不需要依赖于 JS。
 
-##Thanks for 感谢
-- [Stylus](https://github.com/stylus/stylus "stylus")   
-- [Normalize.css](http://necolas.github.io/normalize.css/ "normalize.css") 
-- [clean-css](https://github.com/jakubpawlowicz/clean-css)  
+- leaf-component.css
+
+>
+Components CSS styles, depending on JS.   
+组件 CSS UI 样式，需要依赖于 JS。
+
+##License 许可协议
+
+MIT  

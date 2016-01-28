@@ -4,82 +4,73 @@ var fs       = require('fs'),
     stylus   = require('stylus'),
     CleanCSS = require('clean-css');
 
+var async = require('async');
+
 var banner = "/*! Leaf UI v0.2 */\n";
 
 var config = {
-	"leaf-core": {
-		in: [
-			'./stylus/base.styl',
-			'./stylus/text.styl',
-			'./stylus/layout.styl',
-		],
-		out: "css/",
-		minimize: true,
-	}
+    css: [{
+        src: [
+            'node_modules/normalize.css/normalize.css',
+            'stylus/base.styl',
+            'stylus/text.styl',
+            'stylus/layout.styl',
+        ],
+        dest: "css/leaf-core.css",
+    },{
+        src: [
+            'stylus/component.styl'
+        ],
+        dest: 'css/leaf-component.css'
+    }]
+};
+
+function buildCSSFile(src, dest, callback) {
+    var cssTask = [];
+    
+    for(var i in src) {
+        if(/styl$/.test(src[i])) {
+            (function(file){
+                cssTask.push(function(cb){
+                    fs.readFile(file, 'utf-8', function(er, data){
+                        stylus(data).render(cb);
+                    });
+                });
+            }(src[i]));
+        }
+        else if(/css$/.test(src[i])) {
+            (function(file){
+                cssTask.push(function(cb) {
+                    fs.readFile(file, 'utf-8', cb);
+                });
+            }(src[i]));
+        }
+    }
+    
+    async.parallel(cssTask, function(err, results) {
+        fs.writeFile(dest, results.join('\n'), callback);
+    });
 }
 
-function stylusify(styl, calllback) {
-	stylus(styl)
-		.render(function(err, css) {
-			if(err) {
-				console.log(err);
-				process.exit(-1);
-			}
-			calllback(css);
-		});
-}
-
-function minify(css) {
-	return new CleanCSS({
-		keepBreaks: false,
+function miniCSS(css, options) {
+    options = options || {
+        keepBreaks: false,
 		semanticMerging: true,
-	}).minify(css).styles;
+    };
+    return new CleanCSS(options).minify(css).styles;
 }
 
-function inputFile(path) {
-	return fs.readFileSync(path, 'utf-8');
+function miniCSSFile(src, dest, callback) {
+    fs.readFile(src, function(err, data) {
+       fs.writeFile(dest, miniCSS(data), callback); 
+    });
 }
 
-function outputCSS(path, css) {
-	fs.writeFile(path, banner + css, 'utf8', function(err){
-		console.log(path + ' Done!');
-	});
-}
-
-var normalizeCSS = fs.readFileSync(__dirname + '/node_modules/normalize.css/normalize.css', 'utf8');
-var normalizeMinCSS = minify(normalizeCSS);
-
-for(i in config) {
-	var name = i;
-	var files = config[i].in;
-	var dir = __dirname + '/' + (config[i].out || 'css/');
-	var minimize = config[i].minimize || true;
-	
-	(function(){
-		var cssList = [],
-			minCSSList = [];
-	
-		var finish = 0;
-
-		function buildCSS() {
-			if(finish != files.length) {
-				return;
-			}
-
-			outputCSS(dir + i + '.css', normalizeCSS + cssList.join(""));
-			outputCSS(dir + i + '.min.css', normalizeMinCSS + minCSSList.join(""));
-		}
-
-		for(j in files) {
-			var stylus = inputFile(files[j]);
-			(function(key) {
-				stylusify(stylus, function(css) {
-					cssList[key] = css;
-					minCSSList[key] = minify(css);
-					finish++;
-					buildCSS();
-				});
-			}(j));
-		}		
-	}());	
+for(var i in config.css) {
+    var css = config.css[i];
+    buildCSSFile(css.src, css.dest, function(){
+        miniCSSFile(css.dest, css.dest.replace(/css$/, 'min.css'), function() {
+            console.log(config.css[i].dest + ' done!'); 
+        });
+    });
 }
