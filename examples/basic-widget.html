@@ -57,7 +57,8 @@
 </pre>
     </code>
     
-    <h1>输入框（Textbox）</h1>
+    <!-- Textbox -->
+    <h1>文本框（Textbox）</h1>
     <p>我们可以通过添加 <mark class="mark">.textbox</mark> 来为表单输入框设置样式。</p>
     <input class="textbox" placeholder="textbox" />
     <textarea class="textbox" placeholder="textbox"></textarea>
@@ -67,6 +68,15 @@
 &lt;input class="textbox" placeholder="textbox" /&gt;
 &lt;textarea class="textbox" placeholder="textbox"&gt;&lt;/textarea&gt;</pre>
     </code>
+    <h2>自适应输入框</h2>
+    <p>在 textarea 上使用 . 来使得 textarea 自适应</p>
+    <style>
+        .adaptive {
+            overflow: hidden;
+            resize: none;
+        }
+    </style>
+    <textarea class="textbox single-line adaptive"></textarea>
     
     <h1>列表（Listview）</h1>
     <p>添加 <mark class="mark">.listview</mark> 来将列表设为列表视图样式。</p>
@@ -94,5 +104,26 @@
             <td>Table Cell B-2</td>
         </tr>
     </table>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+    ;(function(){
+        function adaptive (event) {
+            var target = event.target;
+            var scrollWidth, scrollHeight;
+            console.log(target.scrollWidth, parseInt($(target).css('padding-right')));
+            target.style.width = scrollWidth + 'px';
+            while (/*target.scrollWidth != scrollWidth ||*/ target.scrollHeight != scrollHeight) {
+//                scrollWidth = target.scrollWidth;
+                scrollHeight = target.scrollHeight;
+                
+                target.style.height = scrollHeight + 'px';
+            }
+        }
+        
+        $('textarea.adaptive').on({
+            input: adaptive, 
+        });
+    }());
+    </script>
 </body>
 </html>
