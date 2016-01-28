@@ -1,0 +1,16 @@
+.red-dot {
+  position: relative;
+}
+.red-dot:after {
+  content: attr(data-dot);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 4px;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  font-size: 14px;
+  color: #fff;
+  background-color: #f00;
+  border-radius: 10px;
+}

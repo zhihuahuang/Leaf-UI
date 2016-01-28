@@ -1,0 +1,138 @@
+.red-dot
+    position: relative;
+    
+    &:after
+        content: attr(data-dot);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 4px;
+        -webkit-transform: translate(50%, -50%);
+        transform: translate(50%, -50%);
+        font-size: 14px;
+        color: #FFF;
+        background-color: red;
+        border-radius: 10px;
+        
+// Var
+
+$progress-value-color = #1074C4
+$progress-bar-color   = #F3F3F3
+
+
+// Progress Bar
+
+.progressbar {
+    width: 100%;
+    height: 1.5em;
+    border: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: $progress-bar-color;
+    color: $progress-value-color; //IE10 
+}
+
+.progressbar::-webkit-progress-bar {
+    background: $progress-bar-color;
+}
+.progressbar::-webkit-progress-value  {
+    background: $progress-value-color;
+}
+
+.progressbar::-moz-progress-bar {
+    @extend .progressbar::-webkit-progress-value;
+}
+
+.progressbar>*{
+    display: block;
+    font-size: 0.75em;
+    line-height: 2em;
+    color: white;
+    background: $progress-value-color;
+    text-align: center;
+}
+
+// 胶片 幕布
+
+.film{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+    background-color: rgba(0,0,0,.75);
+
+    display: table\0; // ie8-9
+}
+
+.film>*{
+    // ie8-9
+    display: table-cell\0;
+    vertical-align: middle\0;
+    text-align: center\0;
+}
+
+body>.film{
+    position: fixed;
+}
+
+.film.hide{
+    display: flex;
+    display: table\0; // ie8-9
+    width: 0;
+    left: 50%;
+    background: transparent;
+}
+
+.close{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.close:before{
+    content: "×";
+    display: inline-block;
+    width: 20px;
+    line-height: 1em;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+// Dialog
+
+.dialog{
+    min-width: 240px;
+    min-height: 135px;
+    
+    padding: 0;
+
+    border-radius: 4px;
+    color: #333;
+    background: white;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.61);
+}
+
+.dialog>.main{
+    padding: 16px;
+}
+
+.dialog>.header,
+.dialog>.footer{
+    padding: 12px 16px;
+}
+
+.dialog>.close{
+    position: absolute;
+    right: 0;
+}
+
+@import "legible.core"

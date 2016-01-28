@@ -1,4 +1,3 @@
-/*! Leaf UI v0.2 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -423,6 +422,7 @@ td,
 th {
   padding: 0;
 }
+
 .sans-serif {
   font-family: Arial, Tahoma, "华文细黑", "Microsoft Yahei", sans-serif;
 }
@@ -649,6 +649,7 @@ hr.divider {
 .invisible {
   opacity: 0;
 }
+
 /**
 * Text Style
 */
@@ -668,6 +669,7 @@ hr.divider {
   text-align: right;
 }
 .single-line {
+  display: inline;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -679,6 +681,7 @@ hr.divider {
   background-color: #feb;
   border-radius: 4px;
 }
+
 /**
 * Layout
 */
