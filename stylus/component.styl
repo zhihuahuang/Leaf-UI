@@ -1,3 +1,8 @@
+// Var
+
+$progress-value-color = #1074C4
+$progress-bar-color   = #F3F3F3
+
 .red-dot
     position: relative;
     
@@ -13,44 +18,35 @@
         color: #FFF;
         background-color: red;
         border-radius: 10px;
-        
-// Var
-
-$progress-value-color = #1074C4
-$progress-bar-color   = #F3F3F3
-
 
 // Progress Bar
 
-.progressbar {
+.progress-bar
     width: 100%;
     height: 1.5em;
     border: 0;
     border-radius: 4px;
     overflow: hidden;
     background-color: $progress-bar-color;
-    color: $progress-value-color; //IE10 
-}
+    color: $progress-value-color; // IE 10 
 
-.progressbar::-webkit-progress-bar {
-    background: $progress-bar-color;
-}
-.progressbar::-webkit-progress-value  {
-    background: $progress-value-color;
-}
+    &::-webkit-progress-bar
+        background: $progress-bar-color;
 
-.progressbar::-moz-progress-bar {
-    @extend .progressbar::-webkit-progress-value;
-}
+    &::-webkit-progress-value
+        background: $progress-value-color;
 
-.progressbar>*{
-    display: block;
-    font-size: 0.75em;
-    line-height: 2em;
-    color: white;
-    background: $progress-value-color;
-    text-align: center;
-}
+    &::-moz-progress-bar
+        background: $progress-bar-color;
+
+    > .progress-value
+        display: block;
+        font-size: 0.75em;
+        line-height: 2em;
+        color: white;
+        background: $progress-value-color;
+        text-align: center;
+
 
 // 胶片 幕布
 
@@ -134,5 +130,3 @@ body>.film{
     position: absolute;
     right: 0;
 }
-
-@import "legible.core"
