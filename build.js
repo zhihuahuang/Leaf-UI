@@ -32,7 +32,8 @@ function buildCSSFile(src, dest, callback) {
         if(/styl$/.test(src[i])) {
             (function(file){
                 cssTask.push(function(cb){
-                    fs.readFile(file, 'utf-8', function(er, data){
+                    fs.readFile(file, 'utf-8', function(err, data){
+                        if(err) throw err;
                         stylus(data).render(cb);
                     });
                 });
@@ -48,7 +49,13 @@ function buildCSSFile(src, dest, callback) {
     }
     
     async.parallel(cssTask, function(err, results) {
-        fs.writeFile(dest, results.join('\n'), callback);
+        if(err) {
+            console.log(err);
+        }
+        else {
+            fs.writeFile(dest, results.join('\n'), callback);
+        }
+        
     });
 }
 
@@ -62,15 +69,25 @@ function miniCSS(css, options) {
 
 function miniCSSFile(src, dest, callback) {
     fs.readFile(src, function(err, data) {
-       fs.writeFile(dest, miniCSS(data), callback); 
+        if(err) throw err;
+        fs.writeFile(dest, miniCSS(data), callback); 
     });
 }
 
 for(var i in config.css) {
     var css = config.css[i];
-    buildCSSFile(css.src, css.dest, function(){
-        miniCSSFile(css.dest, css.dest.replace(/css$/, 'min.css'), function() {
-            console.log(config.css[i].dest + ' done!'); 
+    (function(src, dest) {
+        buildCSSFile(src, dest, function(err){
+            if(err) throw err;
+
+            miniCSSFile(dest, dest.replace(/css$/, 'min.css'), function(err) {
+                if(err) {
+                    throw err;
+                }
+                else {
+                    console.log(dest + ' done!'); 
+                }
+            });
         });
-    });
+    }(css.src, css.dest));
 }
