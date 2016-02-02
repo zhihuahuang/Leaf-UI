@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget</title>
+    <link rel="stylesheet" href="../css/leaf-core.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <style>
+        .layout {
+            margin-bottom: 10px;
+        }
+        
+        .table {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="sans-serif">
+    <h1>1. Button 按钮</h1>
+    <div class="layout">
+        <div class="col-4">
+            <button class="button">Button</button>
+            <input class="button" type="button" value="Button">
+            <a class="button" href="#">Button</a>
+        </div>
+        <div class="col-8">
+<code class="code">
+    <pre>
+&lt;button class="button"&gt;Button&lt;/button&gt;
+&lt;input class="button" type="button" value="Button"&gt;
+&lt;a class="button" href="#"&gt;Button&lt;/a&gt;</pre>
+    </code>
+        </div>
+    </div>
+    
+    <h2>按钮的颜色</h2>
+    <p>按钮可以有几种样式，我们为你设置了一些基本样式。你可以你的需求自己修改。</p>
+    <div class="layout">
+        <div class="col-4">
+            <button class="button blue">Blue Button</button>
+            <button class="button red">Red Button</button>
+        </div>
+        <div class="col-8">
+<code class="code"><pre>
+&lt;button class="button blue"&gt;Blue Button&lt;/button&gt;
+&lt;button class="button red"&gt;Red Button&lt;/button&gt;</pre>
+</code>
+        </div>
+    </div>
+    
+    <p>我们不使用primary、danger这样的语义来描述一个按钮，这对于你的项目可能是可以的，但不代表其他项目的红色按钮就一定是危险操作。我们也建议你在你的项目中使用danger这样的语义</p>
+
+    <!-- Disabled Button -->
+    <div class="layout">
+        <div class="col-4">
+            <button class="button" disabled>Button</button>
+        </div>
+        <div class="col-8">
+<code class="code"><pre>
+&lt;button class="button" disabled&gt;Button&lt;/button&gt;</pre>
+</code>
+        </div>
+    </div>
+    <!--  Circle Button  -->
+    <div class="layout">
+        <div class="col-4">
+            <button class="circle button">Button</button>
+        </div>
+        <div class="col-8">
+<code class="code"><pre>
+&lt;button class="circle button"&gt;Button&lt;/button&gt;</pre>
+</code>
+        </div>
+    </div>
+    <!-- Naked Button -->
+    <h2>Naked Button 无样式按钮</h2>
+    <p>我们可以通过添加 <mark class="mark">.naked</mark> 来为元素设置按钮样式。</p>    
+    <div class="layout">
+        <div class="col-4">
+            <button class="naked">Button</button>
+            <button class="naked button">Button</button>
+        </div>
+        <div class="col-8">
+<code class="code">
+<pre>
+&lt;button class="naked"&gt;Button&lt;/button&gt;
+&lt;button class="naked button"&gt;Button&lt;/button&gt;
+</pre>
+</code>
+        </div>
+    </div>
+    
+    <!-- Textbox -->
+    <h2>2. Textbox 文本框</h2>
+    <!-- Input Textbox -->
+    <div class="layout">
+        <div class="col-4">
+            <input class="textbox" placeholder="textbox" />
+        </div>
+        <div class="col-8">
+            <code class="code"><pre>
+&lt;input class="textbox" placeholder="textbox" /&gt;</pre>
+            </code>
+        </div>
+    </div>
+    <!-- Textarea Textbox -->
+    <div class="layout">
+        <div class="col-4">
+            <textarea class="textbox" placeholder="textbox"></textarea>
+        </div>
+        <div class="col-8">
+            <code class="code"><pre>
+&lt;textarea class="textbox" placeholder="textbox"&gt;&lt;/textarea&gt;</pre>
+            </code>
+        </div>
+    </div>
+    <h2>自适应输入框（alpha特性）</h2>
+    <p>在 textarea 上使用 . 来使得 textarea 自适应</p>
+    <style>
+        .adaptive {
+            overflow: hidden;
+            resize: none;
+        }
+    </style>
+    <textarea class="textbox single-line adaptive"></textarea>
+    
+    <h1>3. Listview 列表</h1>
+    <div class="layout">
+        <div class="col-4">
+            <ul class="listview">
+                <li>List item</li>
+                <li>List item</li>
+                <li>List item</li>
+            </ul>
+        </div>
+        <div class="col-8">
+<code class="code">
+<pre>
+&lt;ul class="listview"&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</code>
+        </div>
+    </div>
+    
+    
+    <h1>4. Table 表格</h1>
+    <table class="table">
+        <tr>
+            <th>Table Head 1</th>
+            <th>Table Head 2</th>
+            <th>Table Head 3</th>            
+        </tr>
+        <tr>
+            <td>Table Cell A-1</td>
+            <td>Table Cell A-2</td>
+            <td>Table Cell A-2</td>
+        </tr>
+        <tr>
+            <td>Table Cell B-1</td>
+            <td>Table Cell B-2</td>
+            <td>Table Cell B-2</td>
+        </tr>
+    </table>
+    
+<code class="code">
+<pre>
+&lt;table class="table"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Table Head 1&lt;/th&gt;
+        &lt;th&gt;Table Head 2&lt;/th&gt;
+        &lt;th&gt;Table Head 3&lt;/th&gt;            
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Table Cell A-1&lt;/td&gt;
+        &lt;td&gt;Table Cell A-2&lt;/td&gt;
+        &lt;td&gt;Table Cell A-2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Table Cell B-1&lt;/td&gt;
+        &lt;td&gt;Table Cell B-2&lt;/td&gt;
+        &lt;td&gt;Table Cell B-2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+</code>
+    
+    
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+    ;(function(){
+        function adaptive (event) {
+            var target = event.target;
+            var scrollWidth, scrollHeight;
+            console.log(target.scrollWidth, parseInt($(target).css('padding-right')));
+            target.style.width = scrollWidth + 'px';
+            while (/*target.scrollWidth != scrollWidth ||*/ target.scrollHeight != scrollHeight) {
+//                scrollWidth = target.scrollWidth;
+                scrollHeight = target.scrollHeight;
+                
+                target.style.height = scrollHeight + 'px';
+            }
+        }
+        
+        $('textarea.adaptive').on({
+            input: adaptive, 
+        });
+    }());
+    </script>
+</body>
+</html>
