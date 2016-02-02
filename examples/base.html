@@ -8,84 +8,138 @@
 </head>
 <body class="sans-serif">
     <h1>Base style 基础样式</h1>
-    <h2>字体</h2>
+    <h2>1. Font 字体</h2>
     <!-- Font -->
     <!-- Serif -->
     <h3>Serif Font 衬线字</h3>
-    <p class="serif">This is serif font.</p>
-    <h4>Example 示例</h4>
-    <code class="code">
+    <div class="layout">
+        <div class="col-4">
+            <p class="serif">This is serif font.</p>
+        </div>
+        <div class="col-8">
+<code class="code">
 <pre>
 &lt;p class="serif"&gt;This is serif font.&lt;/p&gt;
 </pre>
-    </code>
+</code>
+        </div>
+    </div>
+
     <!-- Sans-serif -->
     <h3>Sans-Serif Font 无衬线字</h3>
-    <p class="sans-serif">This is sans-serif font.</p>
-    <h4>Example 示例</h4>
-    <code class="code">
+    <div class="layout">
+        <div class="col-4">
+            <p class="sans-serif">This is sans-serif font.</p>
+        </div>
+        <div class="col-8">
+<code class="code">
 <pre>
 &lt;p class="sans-serif"&gt;This is sans-serif font.&lt;/p&gt;
 </pre>
-    </code>
+</code>
+        </div>
+    </div>
+
     <!-- 2. Link -->
-    <h2>Link 链接</h2>
-    <p><a class="link" href="#">This is a link.</a></p>
-    <h4>Example 示例</h4>
-    <code class="code">
+    <h2>2. Link 链接</h2>
+    <div class="layout">
+        <div class="col-4">
+            <a class="link" href="#">This is a link.</a>
+        </div>
+        <div class="col-8">
+<code class="code">
 	<pre>
 &lt;a class="link" href="#"&gt;This is a link.&lt;/a&gt;</pre>
     </code>
-    <h2>List 列表</h2>
+        </div>
+    </div>
+    
+    <!-- List -->
+    <h2>3. List 列表</h2>
     <h3>Unordered list 无序列表</h3>
-    <ul class="list">
-        <li>Unordered list item</li>
-        <li>Unordered list item</li>
-        <li>Unordered list item</li>
-    </ul>
-    <h4>Example 示例</h4>
-    <code class="code">
-	<pre>
+    <div class="layout">
+        <div class="col-4">
+            <ul class="list">
+                <li>Unordered list item</li>
+                <li>Unordered list item</li>
+                <li>Unordered list item</li>
+            </ul>
+        </div>
+        <div class="col-8">
+<code class="code">
+<pre>
 &lt;ul class="list"&gt;
     &lt;li&gt;Unordered list item&lt;/li&gt;
     &lt;li&gt;Unordered list item&lt;/li&gt;
     &lt;li&gt;Unordered list item&lt;/li&gt;
 &lt;/ul&gt;</pre>
-    </code>
+</code> 
+        </div>
+    </div>
     <h3>Ordered list 有序列表</h3>
-    <ol class="list">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-    </ol>
-    <h4>Example 示例</h4>
-    <code class="code">
-	<pre>
+    <div class="layout">
+        <div class="col-4">
+            <ol class="list">
+                <li>Ordered list item</li>
+                <li>Ordered list item</li>
+                <li>Ordered list item</li>
+            </ol>
+        </div>
+        <div class="col-8">
+<code class="code">
+<pre>
 &lt;ol class="list"&gt;
     &lt;li&gt;Ordered list item&lt;/li&gt;
     &lt;li&gt;Ordered list item&lt;/li&gt;
     &lt;li&gt;Ordered list item&lt;/li&gt;
 &lt;/ol&gt;</pre>
-    </code>
-    <h2>Shape 形状</h2>
-    <img class="circle" src="images/mark-word-icon.png" />
-    <img class="rounded" src="images/mark-word-icon.png" />
-    <img src="images/mark-word-icon.png" />
-    <code class="code">
+</code>            
+        </div>
+    </div>
+
+    <h2>4. Shape 形状</h2>
+    <div class="layout">
+        <div class="col-4">
+            <img class="circle" src="images/mark-word-icon.png" /><br/>
+        </div>
+        <div class="col-8">
+<code class="code">
 <pre>
 &lt;img class="circle" src="images/mark-word-icon.png" /&gt;
-&lt;img class="rounded" src="images/mark-word-icon.png" /&gt;
-&lt;img src="images/mark-word-icon.png" /&gt;
 </pre>
-    </code>
-    <h2>Shadow 阴影</h2>
-    <img class="shadow" src="images/mark-word-icon.png"/>
-    <code class="code">
+</code>            
+        </div>
+    </div>
+    <div class="layout">
+        <div class="col-4">
+            <img class="rounded" src="images/mark-word-icon.png" /><br/>
+        </div>
+        <div class="col-8">
+<code class="code">
+<pre>
+&lt;img class="rounded" src="images/mark-word-icon.png" /&gt;
+</pre>
+</code>            
+        </div>
+    </div>
+    
+    <!-- Shadow -->
+    <h2>5. Shadow 阴影</h2>
+    <div class="layout">
+        <div class="col-4">
+            <img class="shadow" src="images/mark-word-icon.png"/>
+        </div>
+        <div class="col-8">
+<code class="code">
 <pre>
 &lt;img class="shadow" src="images/mark-word-icon.png"/&gt;
 </pre>
-    </code>
-    <h2>Single Line 单行文本</h2>
+</code>
+        </div>
+    </div>
+    
+    
+    <h2>6. Single Line 单行文本</h2>
     <p class="single-line">This is a very long line of text. This is a very long line of text. This is a very long line of text. This is a very long line of text. This is a very long line of text. This is a very long line of text. This is a very long line of text</p>
     <code class="code">
 <pre>
